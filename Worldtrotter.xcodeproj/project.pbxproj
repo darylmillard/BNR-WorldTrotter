@@ -17,6 +17,7 @@
 		77EC15371F986284000D01EF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EC15361F98626B000D01EF /* MapKit.framework */; };
 		77EC15391F999278000D01EF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC15381F999278000D01EF /* MapViewController.swift */; };
 		77EC153B1F99ADAC000D01EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EC153A1F99ADAC000D01EF /* WebViewController.swift */; };
+		FB0A1A891F9D936500290AA0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0A1A881F9D934800290AA0 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		77EC15361F98626B000D01EF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		77EC15381F999278000D01EF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		77EC153A1F99ADAC000D01EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		FB0A1A881F9D934800290AA0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0A1A891F9D936500290AA0 /* CoreLocation.framework in Frameworks */,
 				77EC15371F986284000D01EF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +141,7 @@
 		77EC15351F98626B000D01EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB0A1A881F9D934800290AA0 /* CoreLocation.framework */,
 				77EC15361F98626B000D01EF /* MapKit.framework */,
 			);
 			name = Frameworks;

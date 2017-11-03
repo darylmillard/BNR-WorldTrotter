@@ -9,10 +9,11 @@
 import UIKit
 import MapKit
 import CoreLocation
-class MapViewController: UIViewController {
+
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var mapView: MKMapView!
-    var locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     
     override func loadView() {
         // Create a map view
@@ -41,8 +42,34 @@ class MapViewController: UIViewController {
         trailingConstraint.isActive = true
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations [0]
+        
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        mapView.setRegion(region, animated: true)
+        
+        self.mapView.showsUserLocation = true
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        // If enabled, app will use location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = (self as CLLocationManagerDelegate)
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
         
         print("MapViewController loaded it's view.")
     }

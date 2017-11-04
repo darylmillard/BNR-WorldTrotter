@@ -96,21 +96,7 @@
                     <view key="view" contentMode="scaleToFill" id="8tm-UV-suB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdZ-1D-bFu">
-                                <rect key="frame" x="8" y="560" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="FLY-jT-KSP"/>
-                                    <constraint firstAttribute="width" constant="50" id="iXT-ah-lBe"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="LocationIcon"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mOE-pR-Hqv" firstAttribute="bottom" secondItem="rdZ-1D-bFu" secondAttribute="bottom" constant="8" id="26Y-8P-Xtw"/>
-                            <constraint firstItem="rdZ-1D-bFu" firstAttribute="leading" secondItem="mOE-pR-Hqv" secondAttribute="leading" constant="8" id="3R3-ED-yNe"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mOE-pR-Hqv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="bxe-gy-MGN"/>
@@ -141,6 +127,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fV4-yG-KlQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dup-Iz-SXg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -157,7 +144,6 @@
     </scenes>
     <resources>
         <image name="ConvertIcon" width="48" height="32"/>
-        <image name="LocationIcon" width="85" height="85"/>
         <image name="MapIcon" width="48" height="32"/>
         <image name="WebIcon" width="25" height="25"/>
     </resources>

@@ -15,6 +15,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
+    
     override func loadView() {
         // Create a map view
         mapView = MKMapView()
@@ -43,15 +44,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations [0]
-        
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-        let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(userLocation, span)
-        mapView.setRegion(region, animated: true)
-        
+        if let location = locations.first {
+            let span = MKCoordinateSpanMake(0.01, 0.01)
+            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+        }
         self.mapView.showsUserLocation = true
-        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
     
     override func viewDidLoad() {
@@ -67,11 +69,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = (self as CLLocationManagerDelegate)
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
         }
         
-        
         print("MapViewController loaded it's view.")
+        setUserButton()
+        
+    }
+    
+    func setUserButton(){
+        let userButton: UIButton = UIButton(type: UIButtonType.custom)
+        userButton.setImage(UIImage(named:"LocationIcon"), for: .normal)
+        userButton.addTarget(self, action: #selector(locationManagerButton), for: UIControlEvents.touchUpInside)
+        userButton.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
+        userButton.backgroundColor = .clear
+        userButton.center = CGPoint(x: 30, y: 100)
+        
+        view.addSubview(userButton)
+    }
+    
+    @objc func locationManagerButton() {
+        locationManager.requestLocation()
     }
     
     
@@ -89,6 +107,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    
-    
+   
 }
